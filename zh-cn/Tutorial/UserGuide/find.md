@@ -42,3 +42,15 @@ HBuilderX，支持选中一段文字，在顶部搜索栏选中区域搜索【Ct
 如下动画，区域搜索，选中区域背景会变成黄色。按`esc`键，退出区域搜索。
 
 <img src="/static/snapshots/tutorial/find/find_region.gif" style="zoom: 90%; border-radius: 5px;border:1px solid #eee;"/>
+
+## 正则替换
+正则的语法与js的正则几乎一致，不同之处在于，js是使用`$数字`这种形式来表示匹配对象，而HBuilderX是使用`\数字`来表示匹配对象。
+如有代码：
+```html
+<cell :title=i18n.title></cell>
+```
+想将`i18n.title`使用引号包裹，则使用搜索的正则表达式为：`(:\w+)=(i18n\.\w+)`,用来替换的文本为：`\1="\2"`（这里与js的正则略有不同！）
+替换后：
+```html
+<cell :title="i18n.title"></cell>
+```
